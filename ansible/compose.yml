@@ -1,0 +1,6 @@
+services:
+  debian-ssh:
+    build: .
+    ports:
+      - "2200:22"
+    container_name: debian-ssh
