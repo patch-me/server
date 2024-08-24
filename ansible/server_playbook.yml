@@ -1,0 +1,8 @@
+---
+# tasks file for dynamic_motd
+- name: Install kube
+  hosts: 0.0.0.0
+  become: yes
+  roles:
+    # - motd
+    - k8s
