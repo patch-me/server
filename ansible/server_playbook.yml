@@ -1,7 +1,7 @@
 ---
 # tasks file for dynamic_motd
 - name: Install kube
-  hosts: 0.0.0.0
+  hosts: 209.97.189.246
   become: yes
   roles:
     # - motd
