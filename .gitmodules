@@ -1,7 +1,6 @@
 [submodule "ansible/roles/k8s"]
-	url = https://github.com/konstruktoid/ansible-role-docker-rootless.git
 	path = ansible/roles/k8s
 	url = git@gitlab.com:patchme/ansible-k8s-roles.git
-[submodule "ansible/roles/roles/docker-rootless"]
+[submodule "ansible/roles/docker-rootless"]
 	path = ansible/roles/roles/docker-rootless
 	url = git@gitlab.com:patchme/ansible-docker-rootless.git
