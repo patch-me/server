@@ -1,0 +1,12 @@
+---
+# tasks file for k8s-config
+
+- name: Install trigera
+  shell: kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
+
+- name: Pause for 5 seconds
+  ansible.builtin.pause:
+    seconds: 5
+
+- name: Install trigera
+  shell: kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml
