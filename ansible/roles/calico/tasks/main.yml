@@ -10,3 +10,7 @@
 
 - name: Install trigera
   shell: kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml
+
+- name: Pause for 1 minute
+  ansible.builtin.pause:
+    minutes: 1
