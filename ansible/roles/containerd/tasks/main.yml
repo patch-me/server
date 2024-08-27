@@ -36,9 +36,9 @@
   apt:
     update_cache: true
     name:
+      - containerd.io
       - docker
       - docker-ce
-      - containerd.io
   become: true
 
 - name: Ensure /etc/containerd directory exists
@@ -57,11 +57,11 @@
     dest: /etc/containerd/config.toml
     mode: "0644"
 
-- name: Ensure containerd is enabled and started
-  systemd:
-    name: containerd
-    enabled: yes
-    state: started
+# - name: Ensure containerd is enabled and started
+#   systemd:
+#     name: containerd
+#     enabled: yes
+#     state: started
 
 - name: Ensure docker is enabled and started
   systemd:
