@@ -1,0 +1,22 @@
+---
+# tasks file for api gateway
+- name: Install the Gateway API resources
+  shell: kubectl kustomize "https://github.com/nginxinc/nginx-gateway-fabric/config/crd/gateway-api/standard?ref=v1.4.0" | kubectl apply -f -
+
+- name: Deploy the NGINX Gateway Fabric CRDs
+  shell: kubectl apply -f https://raw.githubusercontent.com/nginxinc/nginx-gateway-fabric/v1.4.0/deploy/crds.yaml
+
+- name: Copy the Kubernetes configuration file
+  template:
+    src: nginx-nodeport-custom.yml.j2
+    dest: /etc/kubernetes/nginx-nodeport.yml
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Deploy NGINX Gateway Fabric nodeport
+  shell: kubectl apply -f /etc/kubernetes/nginx-nodeport.yml
+
+- name: Pause for 1 minute
+  ansible.builtin.pause:
+    minutes: 1
