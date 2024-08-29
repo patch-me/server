@@ -1,7 +1,0 @@
----
-# tasks file for longhorn
-- name: Install longhorn packages
-  include_tasks: pkg.yml
-
-- name: Install trigera
-  shell: kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.7.0/deploy/longhorn.yaml
