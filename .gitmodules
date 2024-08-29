@@ -10,3 +10,9 @@
 [submodule "ansible/roles/k8s-longhorn"]
 	path = ansible/roles/k8s-longhorn
 	url = git@gitlab.com:patchme/ansible-k8s-longhorn-creation.git
+[submodule "ansible/roles/k8s-network"]
+	path = ansible/roles/k8s-network
+	url = git@gitlab.com:patchme/ansible-k8s-network-creation.git
+[submodule "ansible/roles/containerd"]
+	path = ansible/roles/containerd
+	url = git@gitlab.com:patchme/ansible-role-containerd.git
