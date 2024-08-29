@@ -1,6 +1,12 @@
 [submodule "ansible/roles/k8s"]
-	path = ansible/roles/k8s
-	url = git@gitlab.com:patchme/ansible-k8s-roles.git
+    path = ansible/roles/k8s
+    url = git@gitlab.com:patchme/ansible-k8s-roles.git
 [submodule "ansible/roles/docker-rootless"]
 	path = ansible/roles/roles/docker-rootless
 	url = git@gitlab.com:patchme/ansible-docker-rootless.git
+[submodule "ansible/roles/k8s-gateway-api"]
+	path = ansible/roles/k8s-gateway-api
+	url = git@gitlab.com:patchme/ansible-k8s-gateway-api-creation.git
+[submodule "ansible/roles/k8s-longhorn"]
+	path = ansible/roles/k8s-longhorn
+	url = git@gitlab.com:patchme/ansible-k8s-longhorn-creation.git
