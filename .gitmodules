@@ -16,3 +16,6 @@
 [submodule "ansible/roles/containerd"]
 	path = ansible/roles/containerd
 	url = git@gitlab.com:patchme/ansible-role-containerd.git
+[submodule "ansible/roles/window_manager"]
+	path = ansible/roles/window_manager
+	url = git@gitlab.com:patchme/ansible-window-manager.git
