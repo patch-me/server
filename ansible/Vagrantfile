@@ -1,9 +1,45 @@
+# Vagrant.configure("2") do |config|
+#   config.vm.box = "debian/bookworm64" #archlinux/archlinux debian/bookworm64 "archlinux/archlinux"
+#   config.vm.network "private_network", ip: "192.168.20.2"
+#   config.vm.provider "virtualbox" do |v|
+#     v.memory = 2048
+#     v.cpus = 2
+#   end
+# end
+
+
 Vagrant.configure("2") do |config|
-  config.vm.box = "archlinux/archlinux" #archlinux/archlinux debian/bookworm64 "archlinux/archlinux"
-  config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "private_network", ip: "192.168.56.10"
-  config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
-    v.cpus = 2
+  (1..2).each do |i|
+    config.vm.define "master#{i}" do |master|
+      master.vm.box = "debian/bookworm64"
+      master.vm.network "private_network", ip: "192.168.10.1#{i}"
+      # master.ssh.host = "192.168.10.1#{i}"
+      master.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+      end
+    end
+  end
+  (1..1).each do |i|
+    config.vm.define "worker#{i}" do |worker|
+      worker.vm.box = "debian/bookworm64"
+      worker.vm.network "private_network", ip: "192.168.20.1#{i}", bridge: ["wlp6s0"]
+      # worker.ssh.host = "192.168.20.1#{i}"
+      worker.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+      end
+    end
+  end
+  (1..1).each do |i|
+    config.vm.define "service#{i}" do |service|
+      service.vm.box = "debian/bookworm64"
+      service.vm.network "private_network", ip: "192.168.20.1#{i}", bridge: ["wlp6s0"]
+      # service.ssh.host = "192.168.30.1#{i}"
+      service.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+      end
+    end
   end
 end

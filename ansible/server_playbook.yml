@@ -1,8 +1,12 @@
 ---
 # tasks file for dynamic_motd
 - name: Install kube
-  hosts: 209.97.189.246
-  become: yes
+  hosts: mypatch.fr
+  become: true
   roles:
     # - motd
-    - k8s
+    # - containerd
+    # - k8s-creation
+    - k8s-network
+    # - k8s-longhorn
+    # - k8s-gateway-api
